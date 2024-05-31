@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# URL of the website
+base_url="http://example.com/files"
+
+# Number of files to download
+num_files=$1
+
+# Directory to save the downloaded files
+save_dir="downloaded_files"
+
+# Create the directory if it doesn't exist
+mkdir -p "$save_dir"
+
+# Download the specified number of files
+for ((i=1; i<=num_files; i++)); do
+    file_url="$base_url/file$i.txt"
+    wget -P "$save_dir" "$file_url"
+done
+
+echo "Downloaded $num_files files to $save_dir"
